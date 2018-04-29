@@ -1,0 +1,11 @@
+
+
+
+.game-background {
+    max-width: 1280px;
+}
+
+.game-background .chessboar {
+    background-image: url("../../../resource/background.png");
+    background-repeat: no-repeat;
+}
