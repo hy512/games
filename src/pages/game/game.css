@@ -8,4 +8,12 @@
 .game-background .chessboar {
     background-image: url("../../../resource/background.png");
     background-repeat: no-repeat;
+
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+.game-background .chess {
+    position: relative;
+    z-index: 100;
 }

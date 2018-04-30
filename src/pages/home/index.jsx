@@ -45,7 +45,7 @@ class Option extends React.Component {
         let { text, click, to } = this.props;
         return (
             <Link to={to} className="option">
-                    {text}
+                {text}
             </Link>
         )
     }

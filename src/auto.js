@@ -1,5 +1,6 @@
 
 import {screenUpdateAction} from './app/actions';
+import {store} from './app/store/storeconfig.js';
 
 export default function (doc = document, win = window) {
     // 得到文档对象和 resize事件名称
@@ -16,7 +17,7 @@ export default function (doc = document, win = window) {
             docEl.style.fontSize = 20* (clientWidth / 640) + 'px';
 
             // 添加更新屏幕大小
-            screenUpdateAction({width: docEl.clientWidth, height: docEl.clientHeight});
+            store.dispatch(screenUpdateAction({width: docEl.clientWidth, height: docEl.clientHeight}));
         };
     if (!doc.addEventListener) return;
     // 添加监听
