@@ -17,6 +17,8 @@ const preStore = {
         startTime: new Date(),
         // 游戏记录  { time: 游戏时间, steps: 回合, win: red|blue }
         record: [],
+        // 当前游戏状态
+        current: {},
     }
 };
 
