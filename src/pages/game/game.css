@@ -46,7 +46,8 @@
 .game-background .panel {
     position: absolute;
     top: 50%;
-    transform: translateY("-50%");
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 200;
     background-color: rgba(255, 255, 255, 0.4);
 }

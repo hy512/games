@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
  */
 export default class extends React.Component {
     newGame() {
-        let {history} = this.props;
+        let { history } = this.props;
         history.location.state.restart();
         history.goBack();
     }
@@ -17,13 +17,13 @@ export default class extends React.Component {
         let { win } = this.props.match.params;
 
         let styles = {};
-        win = win + "方胜利！"
         if (win === "红") {
             styles["color"] = "red";
+            win = win + "方胜利！"
         }
         else if (win === "蓝") {
             styles["color"] = "blue";
-
+            win = win + "方胜利！"
         }
         else if (win === "平") {
             win = "平局!";

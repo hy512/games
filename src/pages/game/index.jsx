@@ -118,6 +118,7 @@ class Chessboar extends React.Component {
         chess = chess.set(index, steps % 2 + 1);
         // 计算胜出
         let win = this.calculate(index, chess);
+        console.log(win)
         if (win) {
             this.setState({ gameover: true });
             // 增加比分
@@ -130,6 +131,12 @@ class Chessboar extends React.Component {
             // history.push(`${match.url}/${win === 1 ? "红" : "蓝"}`, { restart: this.restart });
             history.push({pathname:  `${match.url}/${win === 1? "红":"蓝"}`, state:{restart: this.restart}})
         }
+        // 是否平局
+        else if(!chess.includes(0)) {
+            this.setState({ gameover: true });
+            history.push({pathname:  `${match.url}/平`, state:{restart: this.restart}})
+        }
+
         this.setState({ steps, chess });
     }
     // 计算是否出现胜利者
@@ -138,20 +145,20 @@ class Chessboar extends React.Component {
         // let { chess } = this.state;
         // 横排判断
         for (let i of [0, 3, 6]) {
-            if (chess.get(i) === chess.get(i + 1) && chess.get(i) === chess.get(i + 2)) {
+            if (chess.get(i) !== 0 &&chess.get(i) === chess.get(i + 1) && chess.get(i) === chess.get(i + 2)) {
                 return chess.get(i);
             }
         }
         // 竖排判断
         for (let i of [0, 1, 2]) {
-            if (chess.get(i) === chess.get(i + 3) && chess.get(i) === chess.get(i + 6)) {
+            if (chess.get(i) !== 0 && chess.get(i) === chess.get(i + 3) && chess.get(i) === chess.get(i + 6)) {
                 return chess.get(i);
             }
         }
         // 斜排判断
-        if (chess.get(0) === chess.get(4) && chess.get(4) === chess.get(8))
+        if (chess.get(4) !==0 &&chess.get(0) === chess.get(4) && chess.get(4) === chess.get(8))
             return chess.get(0);
-        if (chess.get(2) === chess.get(4) && chess.get(4) === chess.get(6))
+        if (chess.get(4) !== 0&&chess.get(2) === chess.get(4) && chess.get(4) === chess.get(6))
             return chess.get(2);
     }
     // 重新开始一局游戏
